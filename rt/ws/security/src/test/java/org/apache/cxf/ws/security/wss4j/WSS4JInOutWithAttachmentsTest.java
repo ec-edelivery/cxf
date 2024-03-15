@@ -23,6 +23,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -53,6 +56,7 @@ import org.apache.cxf.message.ExchangeImpl;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageImpl;
 import org.apache.cxf.phase.PhaseInterceptorChain;
+import org.apache.cxf.staxutils.StaxUtils;
 import org.apache.wss4j.common.ConfigurationConstants;
 import org.apache.wss4j.common.WSS4JConstants;
 import org.apache.wss4j.stax.ext.WSSConstants;
@@ -86,14 +90,29 @@ public class WSS4JInOutWithAttachmentsTest extends AbstractSecurityTest {
      * @throws Exception if something goes wrong
      */
     @Test
-    public void testEncryptWithAgreementMethodWithXECAndEDKeys() throws Exception {
+    public void testEncryptWithAgreementConcatKDFWithXECAndEDKeys() throws Exception {
         Assume.assumeTrue(getJDKVersion() >= 16);
-        testEncryptWithAgreementMethod("ed25519", "x25519");
+        testEncryptWithAgreementMethod("ed25519", "x25519",
+                WSS4JConstants.AGREEMENT_METHOD_X25519, WSS4JConstants.KEYDERIVATION_CONCATKDF);
     }
 
     @Test
-    public void testEncryptWithAgreementMethodWithECKeys() throws Exception {
-        testEncryptWithAgreementMethod("secp256r1", "secp256r1");
+    public void testEncryptWithAgreementConcatKDFWithECKeys() throws Exception {
+        testEncryptWithAgreementMethod("secp256r1", "secp256r1",
+                WSS4JConstants.AGREEMENT_METHOD_ECDH_ES, WSS4JConstants.KEYDERIVATION_CONCATKDF);
+    }
+
+    @Test
+    public void testEncryptWithAgreementHKDFWithXECAndEDKeys() throws Exception {
+        Assume.assumeTrue(getJDKVersion() >= 16);
+        testEncryptWithAgreementMethod("ed25519", "x25519",
+                WSS4JConstants.AGREEMENT_METHOD_X25519, WSS4JConstants.KEYDERIVATION_HKDF);
+    }
+
+    @Test
+    public void testEncryptWithAgreementHKDFWithECKeys() throws Exception {
+        testEncryptWithAgreementMethod("secp256r1", "secp256r1",
+                WSS4JConstants.AGREEMENT_METHOD_ECDH_ES, WSS4JConstants.KEYDERIVATION_HKDF);
     }
 
     /**
@@ -104,7 +123,8 @@ public class WSS4JInOutWithAttachmentsTest extends AbstractSecurityTest {
      * @param encAlias the alias of the encryption key
      * @throws Exception if something goes wrong.
      */
-    public void testEncryptWithAgreementMethod(String signAlias, String encAlias) throws Exception {
+    public void testEncryptWithAgreementMethod(String signAlias, String encAlias, String keyAgreementMethod,
+                                               String keyDerivationFunction) throws Exception {
 
         Map<String, Object> outProperties = new HashMap<>();
         // Signature configuration (sign before encrypt)
@@ -126,7 +146,8 @@ public class WSS4JInOutWithAttachmentsTest extends AbstractSecurityTest {
         outProperties.put(ConfigurationConstants.ENCRYPTION_USER, encAlias);
         outProperties.put(ConfigurationConstants.ENC_SYM_ALGO, WSS4JConstants.AES_256_GCM);
         outProperties.put(ConfigurationConstants.ENC_KEY_TRANSPORT, WSS4JConstants.KEYWRAP_AES128);
-        outProperties.put(ConfigurationConstants.ENC_KEY_AGREEMENT_METHOD, WSS4JConstants.AGREEMENT_METHOD_ECDH_ES);
+        outProperties.put(ConfigurationConstants.ENC_KEY_AGREEMENT_METHOD, keyAgreementMethod);
+        outProperties.put(ConfigurationConstants.ENC_KEY_DERIVATION_FUNCTION, keyDerivationFunction);
         outProperties.put(ConfigurationConstants.ENC_KEY_ID, "DirectReference");
         outProperties.put(ConfigurationConstants.ENCRYPTION_PARTS, "{}cid:Attachments;");
 
@@ -146,7 +167,12 @@ public class WSS4JInOutWithAttachmentsTest extends AbstractSecurityTest {
         xpaths.add("//wsse:Security/xenc:EncryptedData");
         xpaths.add("//xenc:AgreementMethod");
         xpaths.add("//xenc11:KeyDerivationMethod");
-        xpaths.add("//xenc11:ConcatKDFParams");
+        if (WSS4JConstants.KEYDERIVATION_HKDF.equals(keyDerivationFunction)) {
+            xpaths.add("//rfc9231:HKDFParams");
+            this.testUtilities.addNamespace("rfc9231", "http://www.w3.org/2021/04/xmldsig-more#");
+        } else {
+            xpaths.add("//xenc11:ConcatKDFParams");
+        }
         xpaths.add("//wsse:Security/ds:Signature");
 
         SoapMessage inSoapMessage = makeInvocationWithAttachment(outProperties, xpaths, inProperties);
@@ -206,6 +232,9 @@ public class WSS4JInOutWithAttachmentsTest extends AbstractSecurityTest {
         // xpath validation in output message (SOAPMessage)
         SOAPMessage soapMessage = outMsg.getContent(SOAPMessage.class);
         doc = soapMessage.getSOAPPart();
+
+        Files.write(Paths.get("target/edelivery-as4-" + UUID.randomUUID() + ".xml"),
+                StaxUtils.toString(doc).getBytes(), StandardOpenOption.CREATE);
         for (String xpath : xpaths) {
             assertValid(xpath, doc);
         }
