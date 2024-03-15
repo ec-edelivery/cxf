@@ -5,9 +5,9 @@
     <artifactId>jax_rs_sse_tomcat</artifactId>
 
     <parent>
-        <groupId>org.apache.cxf.samples</groupId>
+        <groupId>eu.europa.ec.edelivery.apache.cxf.samples</groupId>
         <artifactId>cxf-samples</artifactId>
-        <version>4.0.5-SNAPSHOT</version>
+        <version>4.0.5-RC01</version>
         <relativePath>../..</relativePath>
     </parent>
 
@@ -23,15 +23,15 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-sse</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
 
         <dependency>

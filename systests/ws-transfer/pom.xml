@@ -27,8 +27,8 @@
     
     <parent>
         <artifactId>cxf-parent</artifactId>
-        <groupId>org.apache.cxf</groupId>
-        <version>4.0.5-SNAPSHOT</version>
+        <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
+        <version>4.0.5-RC01</version>
         <relativePath>../../parent/pom.xml</relativePath>
     </parent>
     
@@ -61,7 +61,7 @@
           <scope>test</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.cxf</groupId>
+          <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
           <artifactId>cxf-testutils</artifactId>
           <version>${project.version}</version>
           <scope>test</scope>

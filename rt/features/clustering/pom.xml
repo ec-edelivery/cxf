@@ -25,9 +25,9 @@
     <description>Failover and loadbalancing support</description>
     <url>https://cxf.apache.org</url>
     <parent>
-        <groupId>org.apache.cxf</groupId>
+        <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
         <artifactId>cxf-parent</artifactId>
-        <version>4.0.5-SNAPSHOT</version>
+        <version>4.0.5-RC01</version>
         <relativePath>../../../parent/pom.xml</relativePath>
     </parent>
     <properties>
@@ -47,7 +47,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-core</artifactId>
             <version>${project.version}</version>
         </dependency>

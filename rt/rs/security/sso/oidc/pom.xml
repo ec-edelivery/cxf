@@ -25,9 +25,9 @@
   <description>Apache CXF Runtime OpenId Connect</description>
   <url>https://cxf.apache.org</url>
   <parent>
-    <groupId>org.apache.cxf</groupId>
+    <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
     <artifactId>cxf-parent</artifactId>
-    <version>4.0.5-SNAPSHOT</version>
+    <version>4.0.5-RC01</version>
     <relativePath>../../../../../parent/pom.xml</relativePath>
   </parent>
   <properties>
@@ -39,12 +39,12 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>org.apache.cxf</groupId>
+      <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
       <artifactId>cxf-rt-rs-security-oauth2</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.cxf</groupId>
+      <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
       <artifactId>cxf-rt-rs-security-jose-jaxrs</artifactId>
       <version>${project.version}</version>
     </dependency>

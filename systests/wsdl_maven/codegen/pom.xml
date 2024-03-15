@@ -19,14 +19,14 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.apache.cxf.systests.wsdl_maven</groupId>
+    <groupId>eu.europa.ec.edelivery.apache.cxf.systests.wsdl_maven</groupId>
     <artifactId>cxf-systests-codegen</artifactId>
     <name>Test for generating code from wsdl in repo</name>
     <description>Test for generating code from wsdl in repo</description>
     <parent>
-        <groupId>org.apache.cxf</groupId>
+        <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
         <artifactId>cxf-parent</artifactId>
-        <version>4.0.5-SNAPSHOT</version>
+        <version>4.0.5-RC01</version>
         <relativePath>../../../parent/pom.xml</relativePath>
     </parent>
     
@@ -37,7 +37,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
+                <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                 <artifactId>cxf-codegen-plugin</artifactId>
                 <version>${project.version}</version>
                 <executions>
@@ -91,7 +91,7 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdlArtifact>
-                                        <groupId>org.apache.cxf.systests.wsdl_maven</groupId>
+                                        <groupId>eu.europa.ec.edelivery.apache.cxf.systests.wsdl_maven</groupId>
                                         <artifactId>cxf-systests-java2ws</artifactId>
                                         <version>${project.version}</version>
                                         <classifier>test</classifier>
@@ -138,14 +138,14 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.apache.cxf.systests.wsdl_maven</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf.systests.wsdl_maven</groupId>
             <artifactId>cxf-systests-java2ws</artifactId>
             <version>${project.version}</version>
             <classifier>test</classifier>
             <type>HelloWorld.wsdl</type>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -155,7 +155,7 @@
             <version>${cxf.xjc-utils.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf.systests.wsdl_maven</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf.systests.wsdl_maven</groupId>
             <artifactId>cxf-systests-java2ws</artifactId>
             <version>${project.version}</version>
         </dependency>

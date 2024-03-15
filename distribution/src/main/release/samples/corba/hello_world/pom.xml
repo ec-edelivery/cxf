@@ -23,9 +23,9 @@
     <name>hello-world sample using JAX-WS API's to talk via CORBA/IIOP</name>
     <description>hello-world sample using JAX-WS API's to talk via CORBA/IIOP</description>
     <parent>
-        <groupId>org.apache.cxf.samples</groupId>
+        <groupId>eu.europa.ec.edelivery.apache.cxf.samples</groupId>
         <artifactId>cxf-samples</artifactId>
-        <version>4.0.5-SNAPSHOT</version>
+        <version>4.0.5-RC01</version>
         <relativePath>../..</relativePath>
     </parent>
     <properties>
@@ -69,9 +69,9 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
+                <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                 <artifactId>cxf-corbatools-maven-plugin</artifactId>
-                <version>4.0.5-SNAPSHOT</version>
+                <version>4.0.5-RC01</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
@@ -95,9 +95,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
+                <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                 <artifactId>cxf-codegen-plugin</artifactId>
-                <version>4.0.5-SNAPSHOT</version>
+                <version>4.0.5-RC01</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
@@ -277,19 +277,19 @@
     </profiles>
     <dependencies>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-bindings-corba</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-tools-common</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

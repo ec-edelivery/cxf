@@ -24,32 +24,32 @@
     <description>JAX-RS Basic Oidc Demo</description>
     <packaging>war</packaging>
     <parent>
-        <groupId>org.apache.cxf.samples</groupId>
+        <groupId>eu.europa.ec.edelivery.apache.cxf.samples</groupId>
         <artifactId>cxf-samples</artifactId>
-        <version>4.0.5-SNAPSHOT</version>
+        <version>4.0.5-RC01</version>
         <relativePath>../..</relativePath>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-security-jose-jaxrs</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-security-sso-oidc</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency> 
         <dependency>
             <groupId>jakarta.ws.rs</groupId>

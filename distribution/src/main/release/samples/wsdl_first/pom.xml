@@ -24,9 +24,9 @@
     <name>WSDL first demo using Document/Literal Style</name>
     <description>WSDL first demo using Document/Literal Style</description>
     <parent>
-        <groupId>org.apache.cxf.samples</groupId>
+        <groupId>eu.europa.ec.edelivery.apache.cxf.samples</groupId>
         <artifactId>cxf-samples</artifactId>
-        <version>4.0.5-SNAPSHOT</version>
+        <version>4.0.5-RC01</version>
     </parent>
 
     <build>
@@ -62,9 +62,9 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
+                <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                 <artifactId>cxf-codegen-plugin</artifactId>
-                <version>4.0.5-SNAPSHOT</version>
+                <version>4.0.5-RC01</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
@@ -114,9 +114,9 @@
             </build>
             <dependencies>
                 <dependency>
-                    <groupId>org.apache.cxf</groupId>
+                    <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                     <artifactId>cxf-rt-transports-http-jetty</artifactId>
-                    <version>4.0.5-SNAPSHOT</version>
+                    <version>4.0.5-RC01</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -144,9 +144,9 @@
             </build>
             <dependencies>
                 <dependency>
-                    <groupId>org.apache.cxf</groupId>
+                    <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                     <artifactId>cxf-rt-transports-http-jetty</artifactId>
-                    <version>4.0.5-SNAPSHOT</version>
+                    <version>4.0.5-RC01</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -174,9 +174,9 @@
             </build>
             <dependencies>
                 <dependency>
-                    <groupId>org.apache.cxf</groupId>
+                    <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                     <artifactId>cxf-rt-transports-http-netty-server</artifactId>
-                    <version>4.0.5-SNAPSHOT</version>
+                    <version>4.0.5-RC01</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -233,36 +233,36 @@
             </build>
             <dependencies>
                 <dependency>
-                    <groupId>org.apache.cxf</groupId>
+                    <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
                     <artifactId>cxf-rt-transports-http-netty-client</artifactId>
-                    <version>4.0.5-SNAPSHOT</version>
+                    <version>4.0.5-RC01</version>
                 </dependency>
             </dependencies>
         </profile>
     </profiles>
     <dependencies>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-management</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf</groupId>
             <artifactId>cxf-rt-features-metrics</artifactId>
-            <version>4.0.5-SNAPSHOT</version>
+            <version>4.0.5-RC01</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf.xjc-utils</groupId>
+            <groupId>eu.europa.ec.edelivery.apache.cxf.xjc-utils</groupId>
             <artifactId>cxf-xjc-runtime</artifactId>
         </dependency>
         <dependency>
